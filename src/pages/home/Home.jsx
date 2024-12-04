@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import DogDataContext from "../../contect/context";
 
 const Home = () => {
-  return <div>Home</div>;
+  const { loading } = useContext(DogDataContext);
+  return <div>Home {loading ? <p>loading...</p> : <p>not loading...</p>}</div>;
 };
 
 export default Home;
