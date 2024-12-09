@@ -4,6 +4,7 @@ const DogDataContext = createContext();
 
 export const DogDataProvider = ({ children }) => {
   const [dogData, setDogData] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -40,7 +41,9 @@ export const DogDataProvider = ({ children }) => {
   }, []);
 
   return (
-    <DogDataContext.Provider value={{ dogData, loading, error }}>
+    <DogDataContext.Provider
+      value={{ dogData, searchInput, setSearchInput, loading, error }}
+    >
       {children}
     </DogDataContext.Provider>
   );
