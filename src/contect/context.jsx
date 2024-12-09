@@ -11,15 +11,15 @@ export const DogDataProvider = ({ children }) => {
 
   useEffect(() => {
     fetchDogs(
-      "https://api.thecatapi.com/v1/images/search?limit=10",
+      "https://api.thedogapi.com/v1/images/search?limit=10",
       setDogData
     );
-    fetchDogs("https://api.thecatapi.com/v1/breeds", setDogBreeds);
+    fetchDogs("https://api.thedogapi.com/v1/breeds", setDogBreeds);
   }, []);
 
   useEffect(() => {
     fetchDogs(
-      `https://api.thecatapi.com/v1/images/search?breed_ids=${selectedBreedId}`,
+      `https://api.thedogapi.com/v1/images/search?breed_ids=${selectedBreedId}`,
       setDogData
     );
   }, [selectedBreedId]);
@@ -52,6 +52,8 @@ export const DogDataProvider = ({ children }) => {
       setLoading(false);
     }
   };
+
+  console.log(dogData);
 
   return (
     <DogDataContext.Provider
